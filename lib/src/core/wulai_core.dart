@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wulai/src/utilities/wulai_logger.dart';
 import 'package:wulai/src/widgets/wuali_warning.dart';
-import 'package:wulai/src/widgets/wulai_ui.dart';
 
 class WualaiCore {
   static WualaiCore get instance => WualaiCore.create();
@@ -41,7 +40,7 @@ class WualaiCore {
     if (daysRemainin <= 2) {
       if (whenExpiryDoThis == null) {
         Navigator.of(context).push(
-          MaterialPageRoute<void>(builder: (context) => const Wulai()),
+          MaterialPageRoute<void>(builder: (context) => const WualaiWarning()),
         );
       } else {
         whenExpiryDoThis.call();
