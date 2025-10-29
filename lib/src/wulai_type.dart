@@ -1,0 +1,1 @@
+enum WuLai { technical, nonTechnical }
