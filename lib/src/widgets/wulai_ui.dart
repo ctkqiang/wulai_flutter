@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wulai/src/core/wulai_core.dart';
 
@@ -27,10 +28,14 @@ class _WulaiState extends State<Wulai> {
   @override
   void initState() {
     super.initState();
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       wulai.onExpiryDateDue(
         context,
-        daysRemainin: wulai.getTheRemainingDays(dueDate: widget.dueDate),
+        daysRemainin: wulai.getTheRemainingDays(
+          dueDate: widget.dueDate,
+          isDeveloperMode: kDebugMode,
+        ),
         whenExpiryDoThis: widget.whenExpiryDoThis,
       );
     });
@@ -38,12 +43,17 @@ class _WulaiState extends State<Wulai> {
 
   @override
   Widget build(BuildContext context) {
-    return Opacity(
-      opacity: wulai.calculateOpacity(
-        wulai.getTheRemainingDays(dueDate: widget.dueDate),
-        widget.deadlineDays,
-      ),
-      child: widget.child,
+    return Builder(
+      builder: (BuildContext innerContext) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          wulai.onExpiryDateDue(
+            innerContext,
+            daysRemainin: wulai.getTheRemainingDays(dueDate: widget.dueDate),
+            whenExpiryDoThis: null,
+          );
+        });
+        return widget.child;
+      },
     );
   }
 }
