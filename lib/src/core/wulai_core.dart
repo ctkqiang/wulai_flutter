@@ -39,7 +39,7 @@ class WualaiCore {
   }) {
     if (daysRemainin <= 2) {
       if (whenExpiryDoThis == null) {
-        Navigator.of(context).push(
+        Navigator.of(context, rootNavigator: true).push(
           MaterialPageRoute<void>(builder: (context) => const WualaiWarning()),
         );
       } else {

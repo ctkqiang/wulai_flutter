@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:wulai/src/core/wulai_core.dart';
 
+@immutable
 class Wulai extends StatefulWidget {
   final Widget child;
   final DateTime dueDate;
   final int deadlineDays;
+
+  final void Function()? whenExpiryDoThis;
 
   const Wulai({
     super.key,
     required this.child,
     required this.dueDate,
     required this.deadlineDays,
+    this.whenExpiryDoThis,
   });
 
   @override
@@ -23,6 +27,13 @@ class _WulaiState extends State<Wulai> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      wulai.onExpiryDateDue(
+        context,
+        daysRemainin: wulai.getTheRemainingDays(dueDate: widget.dueDate),
+        whenExpiryDoThis: widget.whenExpiryDoThis,
+      );
+    });
   }
 
   @override
