@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wulai/src/utilities/wulai_logger.dart';
-import 'package:wulai/src/widgets/wuali_warning.dart';
+import 'package:wulai_flutter/src/utilities/wulai_logger.dart';
+import 'package:wulai_flutter/src/widgets/wuali_warning.dart';
 
 class WualaiCore {
   static WualaiCore get instance => WualaiCore.create();

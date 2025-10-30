@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:wulai/src/core/wulai_core.dart';
+import 'package:wulai_flutter/src/core/wulai_core.dart';
 
 @immutable
 class Wulai extends StatefulWidget {
