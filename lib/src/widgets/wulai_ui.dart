@@ -28,17 +28,6 @@ class _WulaiState extends State<Wulai> {
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      wulai.onExpiryDateDue(
-        context,
-        daysRemainin: wulai.getTheRemainingDays(
-          dueDate: widget.dueDate,
-          isDeveloperMode: kDebugMode,
-        ),
-        whenExpiryDoThis: widget.whenExpiryDoThis,
-      );
-    });
   }
 
   @override
@@ -48,8 +37,11 @@ class _WulaiState extends State<Wulai> {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           wulai.onExpiryDateDue(
             innerContext,
-            daysRemainin: wulai.getTheRemainingDays(dueDate: widget.dueDate),
-            whenExpiryDoThis: null,
+            daysRemainin: wulai.getTheRemainingDays(
+              dueDate: widget.dueDate,
+              isDeveloperMode: kDebugMode,
+            ),
+            whenExpiryDoThis: widget.whenExpiryDoThis,
           );
         });
         return widget.child;

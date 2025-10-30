@@ -37,7 +37,7 @@ class WualaiCore {
     required int daysRemainin,
     void Function()? whenExpiryDoThis,
   }) {
-    if (daysRemainin <= 2) {
+    if (daysRemainin < 1) {
       if (whenExpiryDoThis == null) {
         Navigator.of(context, rootNavigator: true).push(
           MaterialPageRoute<void>(builder: (context) => const WualaiWarning()),
@@ -45,6 +45,8 @@ class WualaiCore {
       } else {
         whenExpiryDoThis.call();
       }
+    } else {
+      return;
     }
   }
 }
