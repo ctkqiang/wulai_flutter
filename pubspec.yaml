@@ -1,7 +1,7 @@
 name: wulai_flutter
 description: "A new Flutter package project."
 version: 0.0.1
-homepage: 'http'
+homepage: 'https://github.com/ctkqiang/wulai_flutter'
 
 environment:
   sdk: ^3.8.1
