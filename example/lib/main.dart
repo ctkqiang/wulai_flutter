@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wulai/wulai.dart';
+import 'package:wulai_flutter/wulai_flutter.dart';
 
 void main() {
   runApp(MyApp());

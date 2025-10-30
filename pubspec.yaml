@@ -1,5 +1,5 @@
 name: wulai_flutter
-description: "A new Flutter package project."
+description: "提供一个“到期日”管理的功能，当某个日期临近或到达时，可以触发特定的行为"
 version: 0.0.1
 homepage: 'https://github.com/ctkqiang/wulai_flutter'
 
